@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 
 import './App.css';
 import "bulma/css/bulma.min.css";
@@ -16,9 +16,10 @@ function App() {
     // save into localstorage
     localStorage.setItem('item', JSON.stringify(item));
   }, [item]);
-  
+
   return (
     <div className="container">
+      <h1 className="is-size-1 has-text-weight-bold is-uppercase has-text-centered my-3">don't forget !</h1>
       <Form />
       {
         item.map((item, key) => (

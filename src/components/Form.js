@@ -10,12 +10,12 @@ function Form() {
   const addItem = useItemStore((state) => state.addItem);
 
   const addItemIntoList = () => {
-    if(itemName.length) {
+    if(itemName.length && parseInt(itemAmount) > 0) {
       addItem({id: uuid(), name: itemName, amount: parseInt(itemAmount), checked: false});     
       setItemName('');
       setItemAmount(0);
     } else {
-      alert('Please enter something');
+      alert('Please enter something or Enter amount more than 0');
     }
   }
 

@@ -26,21 +26,20 @@ function List({id, name, amount, checked}) {
   const active = modalVisible ? 'is-active': '';
   return(
     <>
-      <div className="card mt-2" style={checked ? {borderLeft: '6px solid #FF0000'} : {borderLeft: '6px solid #009A68'}}>
+      <div className="card mt-2" style={checked ? {borderLeft: '6px solid #009A68'} : {borderLeft: '6px solid #FF0000'}}>
         <div className="card-content">
           <div className="content">
             <div className="columns">
-              <div className="column is-half">
+              <div className="column is-two-fifths">
                 Item Name: {name}
               </div>
               <div className="column">
                 Amount: {amount}
               </div>
               <div className="column buttons are-small is-flex is-justify-content-space-between">
-                <span>Action:</span>
-                <button class={checked ? "button is-success m-0" : "button is-warning m-0"} onClick={() => {checkedItem(id)}}>{checked ? 'Picked' : 'Pick up'}</button>
-                <button class="button is-info m-0" onClick={handleClick}>Edit</button>
-                <button class="button is-danger m-0" onClick={() => {removeItem(id)}}>Delete</button>
+                <button class={checked ? "button is-success is-flex-grow-4 mx-1 my-0" : "button is-warning is-flex-grow-4 mx-1 my-0"} onClick={() => {checkedItem(id)}}>{checked ? 'Picked' : 'Pick up'}</button>
+                <button class="button is-info is-flex-grow-4 mx-1 my-0" onClick={handleClick}>Edit</button>
+                <button class="button is-danger is-flex-grow-4 mx-1 my-0" onClick={() => {removeItem(id)}}>Delete</button>
               </div>
             </div>
           </div>
