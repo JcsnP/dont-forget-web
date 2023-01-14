@@ -9,6 +9,7 @@ import { useItemStore } from './store';
 // import components
 import Form from './components/Form';
 import List from './components/List';
+import ProgressBar from './components/ProgressBar';
 
 function App() {
   const item = useItemStore().item;
@@ -21,6 +22,9 @@ function App() {
     <div className="container">
       <h1 className="is-size-1 has-text-weight-bold is-uppercase has-text-centered my-3">don't forget !</h1>
       <Form />
+
+      <ProgressBar />
+
       {
         item.map((item, key) => (
           <List id={item.id} name={item.name} amount={item.amount} checked={item.checked} ley={key} />

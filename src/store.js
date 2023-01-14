@@ -18,7 +18,7 @@ const itemStore = (set) => ({
     if(item.id === id)
       item.checked = !item.checked;
     return item;
-  })}))
+  })})),
 });
 
 export const useItemStore = create(itemStore);

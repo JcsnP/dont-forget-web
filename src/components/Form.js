@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useItemStore } from "../store";
+import validator from 'validator';
 import { v4 as uuid } from 'uuid';
 
 function Form() {
@@ -10,24 +11,23 @@ function Form() {
   const addItem = useItemStore((state) => state.addItem);
 
   const addItemIntoList = () => {
-    if(itemName.length && parseInt(itemAmount) > 0) {
-      addItem({id: uuid(), name: itemName, amount: parseInt(itemAmount), checked: false});     
+    const amount = itemAmount ? parseInt(itemAmount) : 1;
+    if(validator.isAlphanumeric(itemName)) {
+      addItem({id: uuid(), name: itemName, amount: amount, checked: false});
       setItemName('');
       setItemAmount(0);
-    } else {
-      alert('Please enter something or Enter amount more than 0');
     }
   }
 
   return(
     <>
-      <div className="card">
+      <div className="card block">
         <div className="card-content">
           <div className="content">
             <div className="field">
               <div className="field-body">
                 <div class="field">
-                  <label class="label">Name</label>
+                  <label class="label">Name *</label>
                   <div class="control">
                     <input class="input is-small" type="text" placeholder="Mouse, Keyboard, Shoes" value={itemName} onChange={(e) => {setItemName(e.target.value)}} />
                   </div>
