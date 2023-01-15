@@ -12,7 +12,7 @@ function Form() {
 
   const addItemIntoList = () => {
     const amount = itemAmount ? parseInt(itemAmount) : 1;
-    if(validator.isAlphanumeric(itemName)) {
+    if(itemName) {
       addItem({id: uuid(), name: itemName, amount: amount, checked: false});
       setItemName('');
       setItemAmount(0);
